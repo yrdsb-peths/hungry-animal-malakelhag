@@ -1,69 +1,37 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class MyWorld here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class MyWorld extends World
 {
-    private int random;
-    private int counter = 0;
-    /**
-     * Constructor for objects of class MyWorld.
-     *
-     */
+    private int score = 0;
+    private Label scoreLabel;
+    
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(600, 400, 1, false);
         Kangaro kangaro = new Kangaro();
         addObject(kangaro, 300, 300);
-       
-    }
-    public void act(){
-        if(counter == 0){
-            spawnFries();
-            counter = 30;
-        }
-        else{
-            counter--;
-        }
-    }
+        spawnFries();
+        
+        scoreLabel = new Label(0, 70);
+        addObject(scoreLabel, 50, 50);
 
+    }
+    
+    public void onGameOver() {
+        Label gameOverLabel = new Label("Game Over!", 70);
+        addObject(gameOverLabel, getWidth()/2, getHeight()/2);
+        
+    }
+    
+    public void increaseScore() {
+        score = score + 1;
+        scoreLabel.setValue(score);
+    }
+    
     public void spawnFries() {
-            random = Greenfoot.getRandomNumber(4);
-            Fries fries = new Fries();
-            if(random == 0){
-                addObject(fries, 250, 0);
-            }
-            if(random == 1){
-                addObject(fries, 500, 0);
-            }
-            if(random == 2){
-                addObject(fries, 750, 0);
-            }
-            if(random == 3){
-                addObject(fries, 1000, 0);
-            }
-            if(random == 4){
-                addObject(fries, 100, 0);
-            }
-            if(random == 5){
-                addObject(fries, 400, 0);
-            }
-            if(random == 6){
-                addObject(fries, 850, 0);
-            }
-            if(random == 7){
-                addObject(fries, 300, 0);
-            }
-            if(random == 8){
-                addObject(fries, 600, 0);
-            }
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        Fries fries = new Fries();
+        addObject(fries, x, y);
     }
-   
-   
 }
-
