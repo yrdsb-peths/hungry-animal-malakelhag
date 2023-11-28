@@ -50,6 +50,18 @@ public class MyWorld extends World
             if(random == 4){
                 addObject(fries, 100, 0);
             }
+            if(random == 5){
+                addObject(fries, 400, 0);
+            }
+            if(random == 6){
+                addObject(fries, 850, 0);
+            }
+            if(random == 7){
+                addObject(fries, 300, 0);
+            }
+            if(random == 8){
+                addObject(fries, 600, 0);
+            }
     }
    
    
