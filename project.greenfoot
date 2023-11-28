@@ -1,7 +1,7 @@
 #Greenfoot project file
 class.Fries.image=chips-1.png
 class.Kangaro.image=kangaroo.png
-class.MyWorld.image=fortry\ number\ 2.png
+class.MyWorld.image=bricks2.jpg
 dependency1.from=MyWorld
 dependency1.to=Label
 dependency1.type=UsesDependency

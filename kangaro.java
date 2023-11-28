@@ -2,6 +2,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Kangaro extends Actor
 {
+    public Kangaro() {
+        GreenfootImage image = getImage();
+        image.scale(100, 100);
+        setImage(image);
+    }
+    
+    
+    
+    
+    
     public void act()
     {
         if(Greenfoot.isKeyDown("a")){

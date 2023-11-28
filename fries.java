@@ -2,6 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Fries extends Actor
 {
+    public Fries() {
+        GreenfootImage image = getImage();
+        image.scale(40, 40);
+        setImage(image);
+    }
+    
+    
+    
     public void act()
     {
         setLocation(getX(), getY() + 2);
