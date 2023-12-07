@@ -83,3 +83,4 @@ public class Label extends Actor
         setImage(new GreenfootImage(value, fontSize, fillColor, transparent, lineColor));
     }
 }
+
