@@ -44,7 +44,7 @@ public class Kangaro extends Actor {
         if (Greenfoot.isKeyDown("d")) {
             move(3);
         }
-        if (Greenfoot.isKeyDown("space") && !isJumping) {
+        if (Greenfoot.isKeyDown("j") && !isJumping) {
             jump();
         }
 
