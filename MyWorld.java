@@ -3,12 +3,11 @@ import greenfoot.*;
 public class MyWorld extends World {
     private int score = 0;
     private int friesEatenCount = 0;
-    private int highestScore = 0;
-    private Label scoreLabel;
 
+    private Label scoreLabel;
     private boolean gameOver = false;
 
-    public MyWorld() {    
+    public MyWorld() {
         super(600, 400, 1, false);
         Kangaro kangaro = new Kangaro();
         addObject(kangaro, 300, 300);
@@ -35,14 +34,61 @@ public class MyWorld extends World {
     }
 
     public void increaseScore() {
-        score = score + 1;
-        scoreLabel.setValue(score);
+        if (getObjects(Fries.class).isEmpty()) {
+            // No fries on the screen, spawn a new one
+            spawnFries();
+        }
 
+        int points = 1; // Default points
         if (++friesEatenCount % 5 == 0) {
             for (Object obj : getObjects(Fries.class)) {
                 Fries fries = (Fries) obj;
                 fries.setActInterval(fries.getActInterval() - 1);
             }
+        }
+
+        for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2, Label.class)) {
+            Label scoreMessageLabel = (Label) obj;
+            removeObject(scoreMessageLabel);
+        }
+
+        for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2 + 50, Label.class)) {
+            Label scoreMessageLabel = (Label) obj;
+            removeObject(scoreMessageLabel);
+        }
+
+        for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2, Label.class)) {
+            Label gameOverLabel = (Label) obj;
+            removeObject(gameOverLabel);
+        }
+
+        if (!gameOver) {
+            for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2 + 50, Label.class)) {
+                Label scoreMessageLabel = (Label) obj;
+                removeObject(scoreMessageLabel);
+            }
+            score += points;
+
+            // Check if the fries is special
+            for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2 + 50, Label.class)) {
+                Label scoreMessageLabel = (Label) obj;
+                removeObject(scoreMessageLabel);
+            }
+
+            for (Object obj : getObjectsAt(getWidth() / 2, getHeight() / 2, Label.class)) {
+                Label scoreMessageLabel = (Label) obj;
+                removeObject(scoreMessageLabel);
+            }
+
+            if (Greenfoot.getRandomNumber(10) == 0) {
+                // Special fries - double points
+                points = 2;
+                Label specialFriesLabel = new Label("Special Fries - Extra point!!!", 20);
+                addObject(specialFriesLabel, getWidth() / 2, getHeight() / 2 + 50);
+            }
+
+            score += points;
+            scoreLabel.setValue(score);
         }
     }
 

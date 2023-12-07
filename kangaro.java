@@ -14,7 +14,7 @@ public class Kangaro extends Actor {
     public Kangaro() {
         for (int i = 0; i < rightImages.length; i++) {
             rightImages[i] = new GreenfootImage("images/kangaroo.png");
-            rightImages[i].scale(100, 100);
+            rightImages[i].scale(140, 140);
         }
         for (int i = 0; i < leftImages.length; i++) {
             leftImages[i] = new GreenfootImage("images/kangaroo.png");
@@ -39,10 +39,10 @@ public class Kangaro extends Actor {
         animateKangaro();
 
         if (Greenfoot.isKeyDown("a")) {
-            move(-3);
+            move(-4);
         }
         if (Greenfoot.isKeyDown("d")) {
-            move(3);
+            move(4);
         }
         if (Greenfoot.isKeyDown("j") && !isJumping) {
             jump();
